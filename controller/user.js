@@ -9,7 +9,8 @@ async function insertuser(req, res){
         email: body.email,
         gender: body.gender,
     });
-    const ticket = set_User(user);
+    const ticket = await set_User(user);
+    console.log(ticket);
     return res.json({
         token: ticket,
     });
