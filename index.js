@@ -4,7 +4,7 @@ const port = 8002;
 const {mongoconnect} = require('./connect');
 const {router} = require('./route/user');
 const cookieParser = require('cookie-parser');
-
+const {logging} = require('./middleware/winston_log');
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
@@ -17,4 +17,4 @@ mongoconnect(dburl).then(()=>{
 app.listen(port, ()=>{
     console.log('Listening');
 })
-app.use('/',router);
+app.use('/', logging, router);

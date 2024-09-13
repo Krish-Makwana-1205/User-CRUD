@@ -17,7 +17,6 @@ const authenticateToken = (req, res, next) => {
         req.user = user; // Attach user to the request
         next();
     });
-
 };
 
 
