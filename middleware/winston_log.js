@@ -4,7 +4,9 @@ const daily_rotate_file = require('winston-daily-rotate-file');
 
 const rotate = new daily_rotate_file({
     filename: 'log-%DATE%.log',
-    datePattern: 'YYYY-MM-DD'
+    datePattern: 'YYYY-MM-DD',
+    maxSize: '100b',   
+    maxFiles: '5d' 
 })
 const log = winston.createLogger({
     level: 'info',
